@@ -11,3 +11,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require("jquery")
+require("menu.js")
+require("setting.js")

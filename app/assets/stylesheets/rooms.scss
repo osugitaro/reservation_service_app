@@ -1,0 +1,118 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.rooms{
+    width: 300px;
+}
+
+.RoomImage{
+    width: 100%;
+}
+
+//room.index
+.container_field{
+    width: 100%;
+    padding: 30px 60px;
+}
+
+.container_field h4{
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.room_index{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.room_card{
+    padding: 0 15px;
+    width: 100%;
+    position: relative;
+}
+
+.room_frame_inner{
+    border: 1px solid #e2e2e2;
+    margin-bottom: 10px;
+}
+
+.room_image_wrap{
+    position: relative;
+    width: 100%;
+    background: #F6F8F9;
+    height: 200px;
+}
+
+.room_image{
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.room_profile{
+    width: 100%;
+    padding: 15px;
+}
+
+.room_title{
+    font-size: 18px;
+    font-weight: bold;
+    color: #909090;
+    margin-top: 0;
+    margin-bottom: 1rem;
+} 
+
+.room_address{
+    font-size: 16px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+} 
+
+.room_price{
+    font-size: 16px;
+    text-align: right;
+}
+
+//ルーム登録
+.register_introduction{
+    height: auto !important;
+}
+
+.reserved_title{
+    width: 150px;
+}
+
+.reserved_price{
+    width: 150px;
+}
+
+
+
+@media screen and (min-width: 576px){
+    .room_card{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+}
+
+@media screen and (min-width: 992px){
+    .room_card{
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .room_card{
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    
+}

@@ -1,0 +1,211 @@
+*,*:before, *:after{
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+//トップ画面
+
+.top_container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    padding:0px 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+}
+
+.header_left, .header_right{
+    display: flex;
+    align-items: center;
+}
+
+.header_search{
+    display: none;
+}
+
+.free{
+    margin-right: 2px;
+}
+
+.login{
+    background-color: #4a90e2;
+    margin-right: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    color: white;
+    border-color: #4a90e2;
+    border-radius: 5px;
+    padding: 0 15px;
+}
+
+.menu{
+    color: white;
+}
+
+.header_name{
+    color: #fff;
+    font-size: 14px;
+}
+
+.icon{
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-left: 1rem;
+
+}
+
+
+.menu_list{
+    display: none;
+}
+
+.menu_list_on{
+    display: block;
+    background-color: white;
+    position: absolute;
+    top: 72px;
+    right: 10px;
+    z-index: 1000;
+    border: 3px solid #F6F8F9;
+}
+
+.menu_list ul{
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+}
+
+.menu_list li{
+    font-size: 16px;
+    padding: 3px 5px;
+    line-height: 30px;
+}
+
+.SignUp{
+    background-color: #6c757d;
+    height: 40px;
+    padding: 0 15px;
+    color: white;
+    line-height: 40px;
+    text-decoration: none;
+    border-color: #6c757d;
+    border-radius: 5px;
+}
+
+footer{
+    width: 100%;
+    height: 150px;
+    background-color: black;
+    text-align:center;
+    color:white;
+    line-height: 150px;
+    margin-top: auto;
+}
+
+.area_search{
+    display: none;
+}
+
+.free_search{
+    display: none;
+}
+
+//ルーム情報登録、アカウント、プロフィール共通
+.setting_container{
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #F6F8F9;
+    border-left: 2px solid #e2e2e2;
+    overflow: hidden;
+}
+
+.setting_frame{
+   max-width: 880px;
+   background-color: #fff;
+   border: 1px solid #eaedef;
+   margin: 30px auto;
+}
+
+//送信ボタン
+.submit{
+    margin-top: 1.5rem;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    background-color: #4a90e2;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  //inputフィールド
+.input{
+     width: 100%;
+     height: calc(1.5em + 0.75rem + 2px);
+     padding: 0.375rem 0.75rem;
+     font-weight: 400;
+     color: #495057;
+     border: 1px solid #ced4da;
+     border-radius: 0.25rem;
+}
+
+//エラーメッセージ
+.error_message{
+    background-color: #98ecaa7a;
+    border: 2px solid #5cd075;
+    text-align:center;
+    width: 400px;
+    padding:15px;
+}
+
+.error_message ul{
+    list-style: none;
+}
+
+@media screen and (min-width: 992px){
+    .area_search{
+        display: block;
+        font-family: FontAwesome;
+        height: 40px;
+        margin-right: 5px;
+    }
+
+    .free_search{
+        display: block;
+        height: 40px;
+    }
+
+    .header_search{
+        display: block;
+        padding-left: 30px;
+        height: calc(1.5em + 0.75rem + 2px);
+        margin-right: 2px;
+    }
+
+    .free{
+        margin-right: 2px;
+    }
+    
+}
+
+
+
+
