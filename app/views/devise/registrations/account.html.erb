@@ -1,20 +1,17 @@
 <div class="account_container">
- <div class="selection_settting">
-  <%= link_to "アカウント", users_account_path, class:"selection_change" %>
-  <%= link_to "プロフィール", users_profile_path %>
- </div>
-
- <div class="setting_container">
-  <div class="setting_frame">
-    <div class="setting_text">アカウント</div>
-    <div><span class="account_email">メールアドレス</span><br>
-        <%= @user.email %>
-    </div>
-
-    <div class="edit_button_wrap">
-     <%= link_to "編集", edit_user_registration_path, class: "edit_button" %>
+  <div class="selection_settting">
+    <%= link_to "アカウント", users_account_path, class:"selection_change" %>
+    <%= link_to "プロフィール", users_profile_path %>
+  </div>
+  <div class="setting_container">
+    <div class="setting_frame">
+      <div class="setting_text">アカウント</div>
+      <div><span class="account_email">メールアドレス</span><br>
+          <%= @user.email %>
+      </div>
+      <div class="edit_button_wrap">
+        <%= link_to "編集", edit_user_registration_path, class: "edit_button" %>
+      </div>
     </div>
   </div>
- </div>
 </div>
-

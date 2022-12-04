@@ -1,22 +1,21 @@
 <div class="container_field">
- <h4>検索結果 : <%= @rooms.count %>件</h4>
- <div class="room_index">
- <% @rooms.each do |room| %>
-  <div  class="room_card">
-   <div class="room_frame_inner">
-     <%= link_to new_reservation_path(id: room.id) do %>
-      <div class="room_image_wrap">
-       <%= image_tag room.image, class:"room_image"  %>
+  <h4>検索結果 : <%= @rooms.count %>件</h4>
+  <div class="room_index">
+    <% @rooms.each do |room| %>
+      <div  class="room_card">
+        <div class="room_frame_inner">
+          <%= link_to new_reservation_path(id: room.id) do %>
+            <div class="room_image_wrap">
+              <%= image_tag room.image, class:"room_image"  %>
+            </div>
+            <div class="room_profile">
+              <p class="room_title"><%= room.title %></p>
+              <p class="room_address"><%= room.address %></p>
+              <p class="room_price"> ¥ <%= room.price %></p>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="room_profile">
-       <p class="room_title"><%= room.title %></p>
-       <p class="room_address"><%= room.address %></p>
-       <p class="room_price"> ¥ <%= room.price %></p>
-      </div>
-     <% end %>
-   </div>
+    <% end %>
   </div>
- <% end %> 
- </div>
 </div>
-    
