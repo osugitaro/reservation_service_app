@@ -3,7 +3,11 @@
     <div class="reservation_content">
       <%= image_tag @room.image, class:"reservation_room_image" %>
       <div class="reservation_profile">
-        <div><%= image_tag @user.image, class: "icon" %></div>
+        <% if @user.image.present? %>
+          <div><%= image_tag @user.image, class: "icon" %></div>
+        <% else %>
+          <%= image_tag "default.jpg", class:"icon" %>
+        <% end %>
         <div class="reservation_text">
           <p class="reservation_title"><%= @room.title %></p>
           <p class="reservation_address"><%= @room.address %></p>
