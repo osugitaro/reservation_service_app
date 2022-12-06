@@ -6,7 +6,7 @@ class Reservation < ApplicationRecord
 
     validate :cannot_day_past
     validate :start_end_check
- 
+
 
     def cannot_day_past
     if start_date.past?
@@ -16,11 +16,11 @@ class Reservation < ApplicationRecord
     end
     end
 
-    
+
     def start_end_check
-    if self.start_date < self.end_date
+    if self.start_date > self.end_date
         errors.add(:base, "開始日は終了日よりも後の日付を選ぶことはできません。")
     end
     end
-    
+
 end

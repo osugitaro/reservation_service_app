@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   # def create
   #  super
-    
+
   # end
 
   # GET /resource/edit
@@ -61,22 +61,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
    def update
+    binding.pry
     if current_user.update(account_update_params)
       sign_in(current_user, bypass: true)
      redirect_to users_profile_path
     else
-     render action: edit
+     render action: :edit
     end
    end
 
    def profile_update
+    binding.pry
     if current_user.update(account_update_params)
       sign_in(current_user, bypass: true)
       redirect_to users_profile_path
     else
-      render action: users_profile_path
+      render action: :profile
     end
-  end
+   end
 
 
     def account
@@ -85,15 +87,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def profile
       @user = current_user
-      binding.pry
     end
 
-    
 
 
 
-    
 
-    
+
+
+
 
 end
