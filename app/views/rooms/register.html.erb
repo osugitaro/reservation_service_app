@@ -1,0 +1,25 @@
+<div class="reserved_container">
+  <h4>登録済みルーム一覧</h4>
+  <table class="reserved_table">
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <% @rooms.each do |room| %>
+      <tbody class="reserved_table_body">
+        <td>
+          <%= image_tag room.image, class: "reserved_room_image" %>
+        </td>
+        <td class="reserved_title"><%= room.title %></td>
+        <td class="reserved_introduction"><%= room.introduction %></td>
+        <td class="reserved_price">¥ <%= room.price %></td>
+        <td class="create_date"><%= room.created_at %></td>
+      </tbody>
+    <% end %>
+  </table>
+</div>

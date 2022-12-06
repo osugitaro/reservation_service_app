@@ -1,0 +1,35 @@
+<div class="account_container">
+  <div class="selection_settting">
+    <%= link_to "基本情報", new_room_path, class:"selection_account selection_a" %>
+  </div>
+  <div class="setting_container">
+    <div class="setting_frame profile_frame">
+      <div>ルーム情報登録</div>
+        <%= form_with(model: @room, url:{controller: 'rooms', action: 'create'}, local: true) do |f| %>
+          <div class="profile_field register_field">
+            <%= f.label :title, "ルーム名", class:"profile_required" %><br>
+            <%= f.text_field :title, class:"input", :placeholder => "ルーム名を入力",required: true %>
+          </div>
+          <div class="profile_field register_field">
+            <%= f.label :introduction, "ルーム紹介", class:"profile_required" %><br>
+            <%= f.text_area :introduction, class:"input", id: "register_introduction", :placeholder => "ルーム説明を入力",required: true  %>
+          </div>
+          <div class="profile_field register_field">
+            <%= f.label :price, "料金", class:"profile_required" %><br>
+            <%= f.number_field :price, class:"input", :placeholder => "１日あたりの料金を入力", required: true %>
+          </div>
+          <div class="profile_field register_field">
+            <%= f.label :address, "住所", class:"profile_required" %><br>
+            <%= f.text_field :address, class:"input", :placeholder => "住所", required: true %>
+          </div>
+          <div class="profile_field register_field">
+            <%= f.label :image, "ルーム画像", class:"profile_required" %><br>
+            <%= f.file_field :image, class:"register_input", required: true %>
+          </div>
+          <div class="actions">
+            <%= f.submit "登録", class:"submit" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

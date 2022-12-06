@@ -1,0 +1,47 @@
+<div class="reservation_container">
+  <div class="reservation_info">
+    <div class="reservation_content">
+      <%= image_tag @room.image, class:"reservation_room_image" %>
+      <div class="reservation_profile">
+        <% if @user.image.present? %>
+          <div><%= image_tag @user.image, class: "icon" %></div>
+        <% else %>
+          <%= image_tag "default.jpg", class:"icon" %>
+        <% end %>
+        <div class="reservation_text">
+          <p class="reservation_title"><%= @room.title %></p>
+          <p class="reservation_address"><%= @room.address %></p>
+        </div>
+      </div>
+      <p class="reservation_introduction"><%= @room.introduction %></p>
+    </div>
+    <div class="reservation_show">
+      <div class="reservation_show_frame">
+        <h5 class= "reservation_price">¥<%= @room.price %> / 日</h5>
+        <%= form_with(model: @reservation, url: confirm_reservations_path, class: "reservation_form") do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+          <%= f.hidden_field :id, :value => @room.id %>
+          <div>
+            <%= f.label :start_date,"開始日", class: "reservation_label" %><br>
+            <%= f.date_field :start_date, class: "reservation_input",required: true %>
+          </div>
+          <div>
+            <%= f.label :end_date,"終了日",class: "reservation_label" %><br>
+            <%= f.date_field :end_date, class: "reservation_input",required: true %>
+          </div>
+          <div>
+            <%= f.label :number_of_people,"人数",class: "reservation_label" %><br>
+            <%= f.number_field :number_of_people, class: "reservation_input",required: true %>
+          </div>
+          <div>
+            <% if user_signed_in? %>
+              <%= f.submit "予約する", class: "login_submit" %>
+            <% else %>
+              <%= f.submit "ログイン", class: "login_submit" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

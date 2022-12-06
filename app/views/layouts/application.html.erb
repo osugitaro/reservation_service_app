@@ -8,9 +8,74 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/1cac853ac7.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+  <div class="top_container">
+  <% if user_signed_in? %>
+   <header>
+    <div class="header_left">
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), root_path %>
+      <%= search_form_for @q, url: top_search_path do |f| %>
+       <%= f.search_field :address_cont, :placeholder => "エリア", class:"header_search", :required => true %>
+       <% f.submit %>
+      <% end %>
+      <%= search_form_for @q, url: top_search_path do |f| %>
+       <%= f.search_field :title_or_introduction_or_price_or_address_cont, :placeholder => "フリーワード",class: "header_search free", :required => true %>
+       <% f.submit %>
+      <% end %>
+      <div>エリア</div>
+    </div>
+
+    <div class="header_right">
+     <div class="header_name"><%= current_user.name %></div>
+     <div class= "menu">
+      <% if current_user.image.present? %>
+       <%= image_tag current_user.image, class:"icon" %>
+      <% else %>
+       <%= image_tag "default.jpg", class:"icon" %>
+      <% end%>
+     </div>
+    </div>
+
+     <div class="menu_list">
+      <ul>
+        <li><%= link_to "ルーム登録", new_room_path %></li>
+        <li><%= link_to "予約済みルーム一覧", reserved_reservations_path %></li>
+        <li><%= link_to "登録済みルーム一覧", register_rooms_path %></li>
+        <li><%= link_to "設定", users_account_path %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path,method: :delete %></li>
+      </ul>
+     </div>
+   </header>
+  <% else %>
+    <header>
+      <div class="header_left">
+        <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"), root_path %>
+        <%= search_form_for @q, url: top_search_path do |f| %>
+        <%= f.search_field :address_cont, :placeholder => "エリア", class:"header_search", :required => true %>
+        <% f.submit %>
+        <% end %>
+        <%= search_form_for @q, url: top_search_path do |f| %>
+        <%= f.search_field :title_or_introduction_or_price_or_address_cont, :placeholder => "フリーワード",class: "header_search free", :required => true %>
+        <% f.submit %>
+        <% end %>
+      </div>
+      <div class="header_right">
+        <%= link_to "ログイン", new_user_session_path, class: "btn login" %>
+        <%= link_to "登録する",  new_user_registration_path, class: "btn SignUp" %>
+      </div>
+    </header>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  <% end %>
     <%= yield %>
+  <footer>
+   <small>&copy;2020 POTEPAN.INC.</small>
+  </footer>
+</div>
   </body>
 </html>

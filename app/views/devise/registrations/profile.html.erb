@@ -1,0 +1,41 @@
+<div class="account_container">
+  <div class="selection_settting">
+    <%= link_to "アカウント", users_account_path %>
+    <%= link_to "プロフィール", users_profile_path, class: "selection_change" %>
+  </div>
+
+  <div class="setting_container">
+    <div class="setting_frame profile_frame">
+      <div class="profile_text">プロフィール</div>
+      <div class="profile_image_box">
+        <% if @user.image.present? %>
+          <%= image_tag @user.image,  class:"profile_image"  %>
+        <% else %>
+          <%= image_tag "default.jpg", class:"profile_image" %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= form_with model: @user, url: users_profile_update_path, local: true do |f| %>
+      <%= render "devise/shared/error_messages" %>
+      <div class="profile_field">
+        <p class="profile_image_text profile_required">アイコン画像</p>
+        <%= f.file_field :image, :required => true %>
+      </div>
+
+      <div class="profile_field">
+        <%= f.label :name, "名前", class:"profile_required" %><br>
+        <%= f.text_field :name, class:"input", :required => true %>
+      </div>
+
+      <div class="profile_field">
+        <%= f.label :introduction, "自己紹介", class:"profile_required" %><br>
+        <%= f.text_area :introduction, class:"input", id: "profile_introduction", :required => true  %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "更新", class:"submit" %>
+      </div>
+    <% end %>
+  </div>
+ </div>

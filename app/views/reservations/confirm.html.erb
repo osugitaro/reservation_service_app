@@ -1,0 +1,30 @@
+<div class="confirm_container">
+  <div class="confirm_content">
+    <h4>予約内容確認</h4>
+    <h5>¥<%= @room.price %> / 日 </h5>
+    <div>
+      <p class="reservation_confirm_text">開始日</p>
+      <p class="reservation_input confirm_input"><%= @reservation.start_date %></p>
+    </div>
+    <div>
+      <p class="reservation_confirm_text">終了日</p>
+      <p class="reservation_input confirm_input"><%= @reservation.end_date %></p>
+    </div>
+    <div class="reservation_number_text">使用日数: <%= @number_of_days %>日</div>
+    <div class="reservation_number_text">人数 : <%= @reservation.number_of_people %>人数</div>
+    <div>
+      <p>合計金額</p>
+      <p class="reservation_input confirm_input"><%= @total_price %></p>
+    </div>
+    <%= form_with(model:@reservation, url: {controller: 'reservations', action: 'create'}) do |f| %>
+      <%= f.hidden_field :id, :value => @room.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :start_date %>
+      <%= f.hidden_field :end_date %>
+      <p>上記内容でよろしければ「予約を確定」を押してください<p>
+      <%= f.hidden_field :number_of_people %>
+      <%= f.submit "予約を確定", class: "login_submit" %>
+      <%= f.submit "予約画面に戻る", name: "back", class: "login_submit", id: "reservation_back" %>
+    <% end %>
+ </div>
+</div>

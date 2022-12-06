@@ -1,0 +1,21 @@
+<div class="container_field">
+  <h4>検索結果: <%= @results.count %>件</h4>
+  <div class="room_index">
+    <% @results.each do |result| %>
+      <div  class="room_card">
+        <div class="room_frame_inner">
+          <%= link_to new_reservation_path(id: result.id) do %>
+            <div class="room_image_wrap">
+              <%= image_tag result.image, class:"room_image"  %>
+            </div>
+            <div class="room_profile">
+              <p class="room_title"><%= result.title %></p>
+              <p class="room_address"><%= result.address %></p>
+              <p class="room_price"><%= result.price %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

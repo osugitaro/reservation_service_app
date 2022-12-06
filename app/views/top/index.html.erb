@@ -1,0 +1,46 @@
+<div class="top_main" >
+  <div class="container">
+    <div class="form_area">
+      <div class= "main_area_search">
+        <h3>Potepan shareでまだ体験したことのない旅をしよう</h3>
+        <p>エリア</p>
+        <%= search_form_for @q, url: top_search_path do |f| %>
+          <%= f.search_field :address_cont, class: "area_input", :required => true %>
+          <%= f.submit "探す", class: "submit", id: "area_search_submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class= "container">
+  <div class="suggest_area">
+    <h1>おすすめエリア</h1>
+      <div class="row" >
+        <div class="area">
+          <p>東京</p>
+          <%= link_to rooms_path(area: "東京") do %>
+          <%= image_tag 'img_tokyo.jpg', class: "area_image" %>
+          <% end %>
+        </div>
+        <div class="area">
+          <p>大阪</p>
+          <%= link_to rooms_path(area: "大阪") do %>
+          <%= image_tag 'img_osaka.jpg', class: "area_image" %>
+          <% end %>
+        </div>
+        <div class="area">
+          <p>京都</p>
+          <%= link_to  rooms_path(area: "京都") do %>
+          <%= image_tag 'img_kyoto.jpg', class: "area_image" %>
+          <% end %>
+        </div>
+        <div class="area">
+          <P>札幌</p>
+          <%= link_to rooms_path(area: "札幌") do %>
+          <%= image_tag 'img_sapporo.jpg', class: "area_image" %>
+          <% end %>
+         </div>
+      </div>
+  </div>
+</div>

@@ -52,5 +52,28 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+gem 'hirb'
+gem 'hirb-unicode'
+
+gem 'ransack'
+
+gem 'image_processing', '~> 1.2'
+
+gem 'pry-byebug', group: :development
+
+gem 'pry-rails'
+
+gem 'net-imap'
+gem 'net-pop'
+gem 'net-smtp'
+
+gem 'jquery-rails'
+
+gem 'mini_magick'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
